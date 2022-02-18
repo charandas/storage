@@ -84,6 +84,7 @@ func NewAmazonS3BackendWithCredentials(bucket string, prefix string, region stri
 		Endpoint:         aws.String(endpoint),
 		DisableSSL:       aws.Bool(strings.HasPrefix(endpoint, "http://")),
 		S3ForcePathStyle: aws.Bool(endpoint != ""),
+		LogLevel:         aws.LogLevel(aws.LogDebugWithSigning),
 	})
 	b := &AmazonS3Backend{
 		Bucket:     bucket,
